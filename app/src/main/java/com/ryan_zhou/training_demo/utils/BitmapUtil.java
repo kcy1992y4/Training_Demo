@@ -1,4 +1,4 @@
-package com.ryan_zhou.api_demo.utils;
+package com.ryan_zhou.training_demo.utils;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
