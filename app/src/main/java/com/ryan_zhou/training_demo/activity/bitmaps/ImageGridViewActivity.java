@@ -2,6 +2,8 @@ package com.ryan_zhou.training_demo.activity.bitmaps;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.ryan_zhou.training_demo.R;
-import com.ryan_zhou.training_demo.utils.BitmapUtil;
+import com.ryan_zhou.training_demo.utils.bitmap.BitmapWorkerTask;
+import com.ryan_zhou.training_demo.widget.bitmap.AsyncDrawable;
 
 /**
  * @author chaohao.zhou
@@ -25,6 +28,8 @@ public class ImageGridViewActivity extends Activity {
 
     private ImageGridViewAdapter mImageGridViewAdapter;
 
+    private Bitmap mPalceHolderBitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,8 @@ public class ImageGridViewActivity extends Activity {
 
         mImageGridViewAdapter = new ImageGridViewAdapter(this);
         mGridView.setAdapter(mImageGridViewAdapter);
+
+        mPalceHolderBitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_launcher);
     }
 
 
@@ -74,10 +81,19 @@ public class ImageGridViewActivity extends Activity {
                 convertView = LayoutInflater.from(ImageGridViewActivity.this).inflate(R.layout.bitmaps_item_image_grid_view, parent, false);
             }
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+
             int reqWidth = 150;
             int reqHeight = 150;
-            imageView.setImageBitmap(BitmapUtil.decodeSampledBitmapFromResource(ImageGridViewActivity.this.getResources(), drawableIds[position], reqWidth, reqHeight));
+
+            if (BitmapWorkerTask.cancelPotentialWork(drawableIds[position], imageView)) {
+                final BitmapWorkerTask task = new BitmapWorkerTask(ImageGridViewActivity.this, imageView);
+                final AsyncDrawable asyncDrawable =
+                        new AsyncDrawable(getResources(), mPalceHolderBitmap, task);
+                imageView.setImageDrawable(asyncDrawable);
+                task.execute(drawableIds[position], reqWidth, reqHeight);
+            }
             return convertView;
         }
     }
+
 }
