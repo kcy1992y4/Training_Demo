@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.ryan_zhou.api_demo.R;
+import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.utils.BitmapUtil;
 
 /**

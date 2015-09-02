@@ -28,7 +28,7 @@ public class BitmapUtil {
             int halfWidth = width >> 1;
             int halfHeight = height >> 1;
 
-            while (halfWidth >> shift > reqWidth && halfHeight >> shift > reqWidth) {
+            while (halfWidth >> shift > reqWidth && halfHeight >> shift > reqHeight) {
                 shift++;
             }
         }

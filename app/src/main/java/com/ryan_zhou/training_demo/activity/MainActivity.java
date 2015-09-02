@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.ryan_zhou.api_demo.R;
+import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmaps.ImageGridViewActivity;
 
 
