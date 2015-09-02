@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * @author chaohao.zhou
- * @Description:
+ * @Description: 异步Drawable类，存放着一个 @link BitmapWorkerTask 的弱引用变量
  * @date 2015/9/2 15:44
  * @copyright TCL-MIE
  */

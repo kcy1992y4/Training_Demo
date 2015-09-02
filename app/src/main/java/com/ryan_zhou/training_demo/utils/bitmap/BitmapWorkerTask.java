@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
-import com.ryan_zhou.training_demo.activity.bitmaps.ImageGridViewActivity;
 import com.ryan_zhou.training_demo.widget.bitmap.AsyncDrawable;
 
 import java.lang.ref.WeakReference;
