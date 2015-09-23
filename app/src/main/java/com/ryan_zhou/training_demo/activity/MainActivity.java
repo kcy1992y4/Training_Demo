@@ -11,6 +11,7 @@ import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmaps.ImageGridViewActivity;
 
 
+
 public class MainActivity extends Activity {
 
     @Override
@@ -45,8 +46,8 @@ public class MainActivity extends Activity {
         int id = view.getId();
         switch (id) {
             case R.id.button_1: {
-                Intent intent = new Intent(this, ImageGridViewActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, ImageGridViewActivity.class);
+//                startActivity(intent);
                 break;
             }
 

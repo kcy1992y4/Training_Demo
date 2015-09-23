@@ -21,8 +21,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.bitmaps.ImageGridViewActivity"
-            android:label="@string/bitmap_image_grid_view"></activity>
     </application>
 
 </manifest>
