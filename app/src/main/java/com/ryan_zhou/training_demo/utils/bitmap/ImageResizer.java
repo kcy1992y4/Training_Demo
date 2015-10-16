@@ -36,14 +36,14 @@ public class ImageResizer extends ImageWorker {
 
     @Override
     protected Bitmap processBitmap(Object data) {
-        return null;
+        return processBitmap(Integer.parseInt(String.valueOf(data)));
     }
 
     private Bitmap processBitmap(int resId) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "processBitmap - " + resId);
         }
-        return null;
+        return decodeSampleBitmapFromResource(mResources, resId, mImageWidth, mImageHeight, getImageCache());
     }
 
     public void setImageSize(int size) {
@@ -78,6 +78,8 @@ public class ImageResizer extends ImageWorker {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(fileName, options);
 
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
         if (CommonUtils.hasHoneycomb()) {
             addInBitmapOptions(options, imageCache);
         }
@@ -91,6 +93,8 @@ public class ImageResizer extends ImageWorker {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
 
         if (CommonUtils.hasHoneycomb()) {
             addInBitmapOptions(options, imageCache);

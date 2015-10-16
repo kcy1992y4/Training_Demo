@@ -1,17 +1,26 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/button_1"
+        android:id="@+id/button_bitmap_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bitmap_image_grid_view"
+        android:text="@string/bitmap_image_grid_activity"
         android:onClick="buttonOnClicked"
         android:layout_marginTop="10dp"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button_service_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonOnClicked"
+        android:text="@string/service_main_activity"/>
+
+
+</LinearLayout>

@@ -1,6 +1,11 @@
 package com.ryan_zhou.training_demo.utils.bitmap;
 
+import android.annotation.TargetApi;
 import android.os.Build;
+import android.os.StrictMode;
+
+import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
+import com.ryan_zhou.training_demo.activity.bitmap.ImageGridActivity;
 
 /**
  * @author chaohao.zhou
@@ -9,6 +14,22 @@ import android.os.Build;
  * @copyright TCL-MIE
  */
 public class CommonUtils {
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static void enableStrictMode() {
+        if (CommonUtils.hasGingerbread()) {
+            StrictMode.ThreadPolicy.Builder threadPolicyBuilder = new StrictMode.ThreadPolicy.Builder().detectAll()
+                    .penaltyLog();
+            StrictMode.VmPolicy.Builder vmPolicyBuilder = new StrictMode.VmPolicy.Builder().detectAll().penaltyLog();
+
+            if (CommonUtils.hasHoneycomb()) {
+                threadPolicyBuilder.penaltyFlashScreen();
+                vmPolicyBuilder.setClassInstanceLimit(ImageGridActivity.class, 1).setClassInstanceLimit(ImageDetailActivity.class, 1);
+            }
+            StrictMode.setThreadPolicy(threadPolicyBuilder.build());
+            StrictMode.setVmPolicy(vmPolicyBuilder.build());
+        }
+    }
 
     /**
      * Android 2.2     API 8   冻酸奶

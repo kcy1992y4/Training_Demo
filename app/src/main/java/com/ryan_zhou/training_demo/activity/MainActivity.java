@@ -8,11 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.ryan_zhou.training_demo.R;
-import com.ryan_zhou.training_demo.activity.bitmaps.ImageGridViewActivity;
-
+import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
+import com.ryan_zhou.training_demo.activity.service.ServiceMainActivity;
 
 
 public class MainActivity extends Activity {
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,16 @@ public class MainActivity extends Activity {
     public void buttonOnClicked(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.button_1: {
-//                Intent intent = new Intent(this, ImageGridViewActivity.class);
-//                startActivity(intent);
+            case R.id.button_bitmap_activity: {
+                Intent intent = new Intent(this, ImageDetailActivity.class);
+                startActivity(intent);
                 break;
             }
-
+            case R.id.button_service_activity: {
+                Intent intent = new Intent(this, ServiceMainActivity.class);
+                startActivity(intent);
+                break;
+            }
             default:
         }
     }

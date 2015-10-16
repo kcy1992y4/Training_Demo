@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">TRAINING_DEMO</string>
-    <string name="bitmap_image_grid_view">ImageGridViewActivity</string>
+    <string name="bitmap_image_grid_activity">ImageGridActivity</string>
+    <string name="no_network_connection_toast">No network connection found</string>
+    <string name="service_main_activity">ServiceMainActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

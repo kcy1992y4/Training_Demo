@@ -252,6 +252,43 @@ public abstract class ImageWorker {
 
     protected abstract Bitmap processBitmap(Object data);
 
+    protected void initDiskCacheInternal() {
+        if (mImageCache != null) {
+            mImageCache.initDiskCache();
+        }
+    }
+
+    protected void clearCacheInternal() {
+        if (mImageCache != null) {
+            mImageCache.clearCache();
+        }
+    }
+
+    protected void flushCacheInternal() {
+        if (mImageCache != null) {
+            mImageCache.flush();
+        }
+    }
+
+    protected void closeCacheInternal() {
+        if (mImageCache != null) {
+            mImageCache.close();
+            mImageCache = null;
+        }
+    }
+
+    public void clearCache() {
+        new CacheAsyncTask().execute(MESSAGE_CLEAR);
+    }
+
+    public void flushCache() {
+        new CacheAsyncTask().execute(MESSAGE_FLUSH);
+    }
+
+    public void closeCache() {
+        new CacheAsyncTask().execute(MESSAGE_CLOSE);
+    }
+
     private static class AsyncDrawable extends BitmapDrawable {
         private final WeakReference<BitmapWorkerTask> bitmapWorkerTaskWeakReference;
 
@@ -284,43 +321,6 @@ public abstract class ImageWorker {
                     break;
             }
             return null;
-        }
-
-        protected void initDiskCacheInternal() {
-            if (mImageCache != null) {
-                mImageCache.initDiskCache();
-            }
-        }
-
-        protected void clearCacheInternal() {
-            if (mImageCache != null) {
-                mImageCache.clearCache();
-            }
-        }
-
-        protected void flushCacheInternal() {
-            if (mImageCache != null) {
-                mImageCache.flush();
-            }
-        }
-
-        protected void closeCacheInternal() {
-            if (mImageCache != null) {
-                mImageCache.close();
-                mImageCache = null;
-            }
-        }
-
-        public void clearCache() {
-            new CacheAsyncTask().execute(MESSAGE_CLEAR);
-        }
-
-        public void flushCache() {
-            new CacheAsyncTask().execute(MESSAGE_FLUSH);
-        }
-
-        public void closeCache() {
-            new CacheAsyncTask().execute(MESSAGE_CLOSE);
         }
     }
 

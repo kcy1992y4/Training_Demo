@@ -291,6 +291,7 @@ public class ImageCache {
                 }
                 // 删除硬盘缓存目录，然后重新新建
                 mDiskLruCache = null;
+                mDiskCacheStarting = true;
                 initDiskCache();
             }
         }
