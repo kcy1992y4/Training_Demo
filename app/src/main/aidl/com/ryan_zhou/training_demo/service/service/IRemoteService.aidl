@@ -1,7 +1,8 @@
 // IRemoteService.aidl
-package com.ryan_zhou.training_demo;
+package com.ryan_zhou.training_demo.service.service;
 
 // Declare any non-default types here with import statements
+import com.ryan_zhou.training_demo.bean.service.Student;
 
 interface IRemoteService {
     /**
@@ -9,7 +10,10 @@ interface IRemoteService {
      * and return values in AIDL.
      */
 
-     int getPid();
+    Map getMap(in String test_class,in Student student);
+    void getStudent(in Student student);
+    void newStudent(out Student student);
+    void changeStudent(inout Student student);
 
     void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
             double aDouble, String aString);

@@ -19,11 +19,11 @@ public class ImageGridActivity extends FragmentActivity {
     private static final String TAG = "ImageGridActivity";
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+    protected void onCreate(Bundle savedInstanceState) {
         if (BuildConfig.DEBUG) {
             CommonUtils.enableStrictMode();
         }
-        super.onCreate(savedInstanceState, persistentState);
+        super.onCreate(savedInstanceState);
         if (getSupportFragmentManager().findFragmentByTag(TAG) == null) {
             final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(android.R.id.content, new ImageGridFragment(), TAG);

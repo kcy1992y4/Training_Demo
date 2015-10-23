@@ -12,17 +12,14 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.service.service.ForegroundService;
+import com.ryan_zhou.training_demo.service.service.IRemoteService;
 import com.ryan_zhou.training_demo.service.service.InteractService1;
 import com.ryan_zhou.training_demo.service.service.InteractService2;
-import com.ryan_zhou.training_demo.service.service.InteractService3;
-import com.ryan_zhou.training_demo.service.service.LifeCycleIntentService;
-import com.ryan_zhou.training_demo.service.service.LifeCycleService;
 import com.ryan_zhou.training_demo.service.service.LocalService;
-import com.ryan_zhou.training_demo.service.service.MessengerService;
+import com.ryan_zhou.training_demo.service.service.RemoteService;
 
 /**
  * @author chaohao.zhou
@@ -43,7 +40,7 @@ public class ServiceFirstActivity extends Activity {
     private Intent intent3;
     private Intent intent4;
 
-    private class ServiceFirstActivityHandler extends Handler{
+    private class ServiceFirstActivityHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -58,7 +55,7 @@ public class ServiceFirstActivity extends Activity {
 
     private Messenger mMessenger;
 
-    private Messenger serviceMessenger;
+    private Messenger mServiceMessenger;
 
     // 链接LocalService的Connection
     private ServiceConnection myServiceConnection = new ServiceConnection() {
@@ -81,12 +78,27 @@ public class ServiceFirstActivity extends Activity {
     private ServiceConnection messengerServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            serviceMessenger = new Messenger(service);
+            mServiceMessenger = new Messenger(service);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            Log.e(TAG, "Service has unexpectedly disconnected");
+            mServiceMessenger = null;
+        }
+    };
 
+    private IRemoteService mIRemoteService;
+    private ServiceConnection remoteServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mIRemoteService = IRemoteService.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Log.e(TAG, "Service has unexpectedly disconnected");
+            mIRemoteService = null;
         }
     };
 
@@ -95,7 +107,7 @@ public class ServiceFirstActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_common);
-        intent1 = new Intent(this, MessengerService.class);
+        intent1 = new Intent(this, RemoteService.class);
         intent2 = new Intent(this, InteractService1.class);
         intent3 = new Intent(this, InteractService2.class);
         intent4 = new Intent(this, ForegroundService.class);
@@ -110,13 +122,13 @@ public class ServiceFirstActivity extends Activity {
                 startService(intent1);
                 break;
             case R.id.button_2:
-                bindService(intent1, messengerServiceConnection, BIND_AUTO_CREATE);
+                bindService(intent1, remoteServiceConnection, BIND_AUTO_CREATE);
                 break;
             case R.id.button_3:
                 stopService(intent1);
                 break;
             case R.id.button_4:
-                unbindService(messengerServiceConnection);
+                unbindService(remoteServiceConnection);
                 break;
             case R.id.button_5:
                 startService(intent1);
@@ -142,7 +154,24 @@ public class ServiceFirstActivity extends Activity {
 //                                    message.what = MessengerService.MSG_LOG_COUNT;
 //                                    message.replyTo = mMessenger;
 //                                    try {
-//                                        serviceMessenger.send(message);
+//                                        mServiceMessenger.send(message);
+//                                    } catch (RemoteException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                }
+//                            }).start();
+//                        }
+//                    }
+//                }).start();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        for (int i = 0; i < 10000; i++) {
+//                            new Thread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    try {
+//                                        Log.d(TAG, "-->从RemoteService中获取的ID：" + mIRemoteService.getPid());
 //                                    } catch (RemoteException e) {
 //                                        e.printStackTrace();
 //                                    }

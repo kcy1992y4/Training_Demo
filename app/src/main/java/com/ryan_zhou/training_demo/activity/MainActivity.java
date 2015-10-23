@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
+import com.ryan_zhou.training_demo.activity.bitmap.ImageGridActivity;
 import com.ryan_zhou.training_demo.activity.service.ServiceMainActivity;
 
 
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
         int id = view.getId();
         switch (id) {
             case R.id.button_bitmap_activity: {
-                Intent intent = new Intent(this, ImageDetailActivity.class);
+                Intent intent = new Intent(this, ImageGridActivity.class);
                 startActivity(intent);
                 break;
             }

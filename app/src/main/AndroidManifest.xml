@@ -1,49 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ryan_zhou.training_demo" >
+<manifest package="com.ryan_zhou.training_demo"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="21"/>
 
-    <android:uses-permission
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
+        android:maxSdkVersion="18"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+        android:maxSdkVersion="18"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppThemeDark">
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name" >
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.service.ServiceMainActivity"></activity>
+        <activity android:name=".activity.bitmap.ImageGridActivity"
+            ></activity>
+        <activity android:name=".activity.bitmap.ImageDetailActivity"></activity>
+        <activity
+            android:name=".activity.service.ServiceMainActivity"
+            android:parentActivityName=".activity.bitmap.ImageGridActivity"
+            android:theme="@style/AppThemeDark.FullScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.bitmap.ImageGridActivity"/>>
+        </activity>
         <activity android:name=".activity.service.ServiceFirstActivity"></activity>
         <activity android:name=".activity.service.ServiceSecondActivity"></activity>
         <activity android:name=".activity.service.ServiceThirdActivity"></activity>
         <activity android:name=".activity.service.ServiceFourthActivity"></activity>
         <activity android:name=".activity.service.ServiceFifthActivity"></activity>
 
-        <service android:name=".service.service.LifeCycleService" android:enabled="true"></service>
-        <service android:name=".service.service.LifeCycleIntentService" android:enabled="true"></service>
-        <service android:name=".service.service.InteractService1" android:enabled="true"></service>
-        <service android:name=".service.service.InteractService2" android:enabled="true"></service>
-        <service android:name=".service.service.InteractService3" android:enabled="true"></service>
-        <service android:name=".service.service.LocalService" android:enabled="true"></service>
-        <service android:name=".service.service.MessengerService" android:enabled="true"></service>
-        <service android:name=".service.service.ForegroundService" android:enabled="true"></service>
+        <service
+            android:name=".service.service.LifeCycleService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.LifeCycleIntentService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.InteractService1"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.InteractService2"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.InteractService3"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.LocalService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.MessengerService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.ForegroundService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.service.RemoteService"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.ryan_zhou.training_demo.IRemoteService"></action>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
