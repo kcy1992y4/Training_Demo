@@ -4,12 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.ryan_zhou.training_demo.BuildConfig;
 import com.ryan_zhou.training_demo.R;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -244,6 +244,9 @@ public class ImageFetcher extends ImageResizer {
                 }
                 if (in != null) {
                     in.close();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
                 }
             }catch (final IOException e) {}
         }

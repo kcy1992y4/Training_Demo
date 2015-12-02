@@ -28,7 +28,7 @@ import com.ryan_zhou.training_demo.BuildConfig;
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
 import com.ryan_zhou.training_demo.provider.bitmap.Images;
-import com.ryan_zhou.training_demo.utils.bitmap.CommonUtils;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageCache;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageFetcher;
 import com.ryan_zhou.training_demo.widget.bitmap.RecyclingImageView;

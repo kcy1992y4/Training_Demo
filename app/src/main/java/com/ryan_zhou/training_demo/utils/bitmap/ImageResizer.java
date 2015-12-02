@@ -9,6 +9,7 @@ import android.os.Build;
 import android.util.Log;
 
 import com.ryan_zhou.training_demo.BuildConfig;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 
 import java.io.FileDescriptor;
 

@@ -5,6 +5,8 @@ import android.os.*;
 import android.os.Process;
 import android.util.Log;
 
+import com.ryan_zhou.training_demo.utils.CommonUtils;
+
 import java.util.ArrayDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;

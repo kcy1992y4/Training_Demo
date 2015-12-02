@@ -22,5 +22,20 @@
         android:onClick="buttonOnClicked"
         android:text="@string/service_main_activity"/>
 
+    <Button
+        android:id="@+id/button_opengles_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonOnClicked"
+        android:text="@string/opengles_main_activity"/>
+
+    <Button
+        android:id="@+id/button_listview_animations_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonOnClicked"
+        android:text="@string/listview_animations_activity"/>
+
+
 
 </LinearLayout>

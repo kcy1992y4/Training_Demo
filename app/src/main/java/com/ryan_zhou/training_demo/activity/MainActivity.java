@@ -10,6 +10,8 @@ import android.view.View;
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageGridActivity;
+import com.ryan_zhou.training_demo.activity.listviewanimations.ListViewAnimationsActivity;
+import com.ryan_zhou.training_demo.activity.opengles.OpenGlEsMainActivity;
 import com.ryan_zhou.training_demo.activity.service.ServiceMainActivity;
 
 
@@ -55,6 +57,16 @@ public class MainActivity extends Activity {
             }
             case R.id.button_service_activity: {
                 Intent intent = new Intent(this, ServiceMainActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.button_opengles_activity: {
+                Intent intent = new Intent(this, OpenGlEsMainActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.button_listview_animations_activity: {
+                Intent intent = new Intent(this, ListViewAnimationsActivity.class);
                 startActivity(intent);
                 break;
             }

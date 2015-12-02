@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.ryan_zhou.training_demo.BuildConfig;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 
 import java.lang.ref.WeakReference;
 

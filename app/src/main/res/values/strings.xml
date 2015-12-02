@@ -3,9 +3,29 @@
     <string name="bitmap_image_grid_activity">ImageGridActivity</string>
     <string name="no_network_connection_toast">No network connection found</string>
     <string name="service_main_activity">ServiceMainActivity</string>
-    <string name="clear_cache_memu">Clear Caches</string>
+    <string name="opengles_main_activity">OpenGl ES MainActivity</string>
+    <string name="clear_cache_menu">Clear Caches</string>
     <string name="clear_cache_complete_toast">Caches have been cleared</string>
     <string name="imageview_description">Image Thumbnail</string>
+    <string name="listview_animations_activity">ListViewAnimations Activity</string>
+
+    <!-- ListView Animations -->
+    <string name="googlecards">Google Cards</string>
+    <string name="itemmanipulation">Item Manipulation</string>
+    <string name="appearance">Appearance Animation</string>
+    <string name="gridview">GridView</string>
+    <string name="stickylistheaders">StickyListHeaders</string>
+    <string name="card_number">This is card %d</string>
+    <string name="dynamiclistview">DynamicListView</string>
+    <string name="expandablelistitemadapter">ExpandableListItemAdapter</string>
+    <string name="row_number">This is row number %d</string>
+    <string name="header">Header %d</string>
+    <string name="itemdeleted">Item deleted</string>
+    <string name="taptoundo">Tap to undo</string>
+    <string name="activity_dynamiclistview_header">Touch the grip or long press an item to drag.\nSwipe to dismiss.\nTap an item to insert a new item.</string>
+    <string name="removed_positions">Removed positions: %s</string>
+    <string name="moved">\'%1$s\' moved to position %2$s</string>
+    <string name="newly_added_item">This is newly added item %d</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

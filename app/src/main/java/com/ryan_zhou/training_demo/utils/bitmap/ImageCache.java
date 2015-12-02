@@ -12,6 +12,7 @@ import android.util.Log;
 import android.util.LruCache;
 
 import com.ryan_zhou.training_demo.BuildConfig;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -113,7 +114,7 @@ public class ImageCache {
 
                 @Override
                 protected int sizeOf(String key, BitmapDrawable value) {
-                    final int bitmapSize = getBitmapSize(value);
+                    final int bitmapSize = getBitmapSize(value) / 1024;
                     return bitmapSize == 0 ? 1 : bitmapSize;
                 }
             };

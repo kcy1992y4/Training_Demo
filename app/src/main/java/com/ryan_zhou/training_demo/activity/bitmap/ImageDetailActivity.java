@@ -21,7 +21,7 @@ import com.ryan_zhou.training_demo.BuildConfig;
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.fragment.bitmap.ImageDetailFragment;
 import com.ryan_zhou.training_demo.provider.bitmap.Images;
-import com.ryan_zhou.training_demo.utils.bitmap.CommonUtils;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageCache;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageFetcher;
 
@@ -45,9 +45,9 @@ public class ImageDetailActivity extends FragmentActivity implements View.OnClic
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (BuildConfig.DEBUG) {
-            CommonUtils.enableStrictMode();
-        }
+//        if (BuildConfig.DEBUG) {
+//            CommonUtils.enableStrictMode();
+//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image_detail_pager);
 

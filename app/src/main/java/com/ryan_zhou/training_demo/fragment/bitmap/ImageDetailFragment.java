@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
-import com.ryan_zhou.training_demo.utils.bitmap.CommonUtils;
+import com.ryan_zhou.training_demo.utils.CommonUtils;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageFetcher;
 import com.ryan_zhou.training_demo.utils.bitmap.ImageWorker;
 

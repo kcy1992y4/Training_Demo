@@ -1,4 +1,4 @@
-package com.ryan_zhou.training_demo.utils.bitmap;
+package com.ryan_zhou.training_demo.utils;
 
 import android.annotation.TargetApi;
 import android.os.Build;
