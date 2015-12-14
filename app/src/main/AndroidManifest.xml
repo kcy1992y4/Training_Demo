@@ -61,6 +61,12 @@
         <activity android:name=".activity.listviewanimations.ItemManipulationExamplesActivity"></activity>
         <activity android:name=".activity.listviewanimations.DynamicListViewActivity"></activity>
 
+        <!-- Activity Scenes -->
+        <activity android:name=".activity.scenes.ScenesMainActivity"></activity>
+        <activity android:name=".activity.scenes.ScenesFirstActivity"></activity>
+        <activity android:name=".activity.scenes.ScenesSecondActivity"></activity>
+        <activity android:name=".activity.scenes.ScenesThirdActivity"></activity>
+        <activity android:name=".activity.scenes.ScenesFourthActivity"></activity>
 
         <!-- service -->
         <service

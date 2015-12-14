@@ -8,6 +8,7 @@
     <string name="clear_cache_complete_toast">Caches have been cleared</string>
     <string name="imageview_description">Image Thumbnail</string>
     <string name="listview_animations_activity">ListViewAnimations Activity</string>
+    <string name="scenes_transition_activity">ScenesTransitionActivity</string>
 
     <!-- ListView Animations -->
     <string name="googlecards">Google Cards</string>
@@ -26,6 +27,19 @@
     <string name="removed_positions">Removed positions: %s</string>
     <string name="moved">\'%1$s\' moved to position %2$s</string>
     <string name="newly_added_item">This is newly added item %d</string>
+
+    <!-- scenes -->
+    <string name="sample_show_log">Show Log</string>
+    <string name="sample_hide_log">Hide Log</string>
+    <string name="intro_message">
+        <![CDATA[
+
+
+            This sample demonstrates how to create and use a custom Transition.
+
+
+        ]]>
+    </string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

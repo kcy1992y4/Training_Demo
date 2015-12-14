@@ -8,10 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.ryan_zhou.training_demo.R;
-import com.ryan_zhou.training_demo.activity.bitmap.ImageDetailActivity;
 import com.ryan_zhou.training_demo.activity.bitmap.ImageGridActivity;
 import com.ryan_zhou.training_demo.activity.listviewanimations.ListViewAnimationsActivity;
 import com.ryan_zhou.training_demo.activity.opengles.OpenGlEsMainActivity;
+import com.ryan_zhou.training_demo.activity.scenes.ScenesMainActivity;
 import com.ryan_zhou.training_demo.activity.service.ServiceMainActivity;
 
 
@@ -67,6 +67,11 @@ public class MainActivity extends Activity {
             }
             case R.id.button_listview_animations_activity: {
                 Intent intent = new Intent(this, ListViewAnimationsActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.button_scenes_transition_activity: {
+                Intent intent = new Intent(this, ScenesMainActivity.class);
                 startActivity(intent);
                 break;
             }

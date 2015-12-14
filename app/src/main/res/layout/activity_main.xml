@@ -36,6 +36,11 @@
         android:onClick="buttonOnClicked"
         android:text="@string/listview_animations_activity"/>
 
-
+    <Button
+        android:id="@+id/button_scenes_transition_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonOnClicked"
+        android:text="@string/scenes_transition_activity"/>
 
 </LinearLayout>

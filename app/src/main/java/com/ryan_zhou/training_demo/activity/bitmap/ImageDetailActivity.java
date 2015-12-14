@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.ryan_zhou.training_demo.BuildConfig;
 import com.ryan_zhou.training_demo.R;
 import com.ryan_zhou.training_demo.fragment.bitmap.ImageDetailFragment;
 import com.ryan_zhou.training_demo.provider.bitmap.Images;
@@ -121,7 +120,7 @@ public class ImageDetailActivity extends FragmentActivity implements View.OnClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.bitmap_menu, menu);
         return true;
     }
 
